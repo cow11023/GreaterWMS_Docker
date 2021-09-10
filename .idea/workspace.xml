@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="2115bad5-c1ee-452d-9aed-cafd28142154" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docker下的GreaterWMS部署文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docker下的GreaterWMS部署文档.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install GreaterWMS and Use Docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/Install GreaterWMS and Use Docker.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +48,9 @@
       <workItem from="1631253387091" duration="133000" />
       <workItem from="1631253941933" duration="18000" />
       <workItem from="1631255847309" duration="455000" />
-      <workItem from="1631256348692" duration="21000" />
+      <workItem from="1631256348692" duration="2495000" />
+      <workItem from="1631260697637" duration="811000" />
+      <workItem from="1631261598508" duration="318000" />
     </task>
     <servers />
   </component>

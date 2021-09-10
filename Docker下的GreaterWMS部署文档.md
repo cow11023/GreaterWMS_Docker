@@ -54,8 +54,9 @@ yum install git
 git clone https://github.com/Singosgu/GreaterWMS.git
 //运行项目前需要修改baseurl.js的内容
 vim templates/dis/spa/statics/baseurl.js //将127.0.0.1修改为服务器的IP地址
+//修改nginx配置
+vim nginx.conf //如果本机部署，请修改nginx.conf中的127.0.0.1修改为本机IP,如果服务器部署，则将127.0.0.1修改为服务器IP
 docker-compose up -d
-vim nginx.conf //如果部署到服务器，请修改nginx.conf中的127.0.0.1或者服务器IP
 //查看后端镜像运行日志
 docker logs -f greaterwms_backend_v2.0.25
 //当打印的后端日志出现以下信息即表示后端启动成功
@@ -71,18 +72,8 @@ Starting supervisor: 2021-09-09 08:24:22,929 CRIT Supervisor is running as root.
 
 ```
 
-7. 发布前端代码
 
-```
-//进入前端容器
-docker exec -it greaterwms_web_v2.0.25 /bin/bash
-//容器内进入templates目录
-cd templates
-//编译前端代码
-quasar d 
-```
-
-8. 访问入口
+7. 访问入口
 
    http://服务器IP:8008
    

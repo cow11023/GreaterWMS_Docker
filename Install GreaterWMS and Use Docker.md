@@ -35,6 +35,8 @@ yum install git
 git clone https://github.com/Singosgu/GreaterWMS.git
 //you need to modify the contents of baseurl.js before running the project
 vim templates/public/static/baseurl.js //change 127.0.0.1 to the IP address of the server
+//Modify nginx configuration
+vim nginx.conf //If the server is deployed locally, modify 127.0.0.1 in nginx.conf to the native IP. If the server is deployed, modify 127.0.0.1 to the server IP
 docker-compose up -d
 //view the mirror operation log
 docker logs -f greaterwms:v2.0.25

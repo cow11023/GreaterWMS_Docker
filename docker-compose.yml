@@ -21,7 +21,7 @@ services:
         bash backend_start.sh
         /etc/init.d/supervisor start 
   nginx:
-    image: nginx:1.19.1
+    image: nginx:1.17.1
     container_name: greaterwms_v2.0.25_nginx
     restart: always
     privileged: true
