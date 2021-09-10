@@ -1,0 +1,39 @@
+version: '2'
+networks:
+  basic:
+services:
+  backend:
+    build:
+      context: ./
+      #dockerfile: ./docker_env(EN)/backend/Dockerfile #全球用户使用
+      dockerfile: ./docker_env(CN)/backend/Dockerfile #国内用户使用
+    container_name: greaterwms_backend_v2.0.25
+    restart: always
+    volumes:
+      - ./:/GreaterWMS/:rw #将前目录挂载到容器下
+      - ./supervisord.conf:/etc/supervisor/supervisord.conf
+    ports:
+      - '8008:8008'      
+    command:
+      - /bin/bash 
+      - -c 
+      - |
+        bash backend_start.sh
+        /etc/init.d/supervisor start 
+  nginx:
+    image: nginx:1.14.1
+    container_name: greaterwms_v2.0.25_nginx
+    restart: always
+    privileged: true
+    environment:
+      - TZ=Asia/Shanghai
+    ports:
+      - 80:80
+      #- 443:443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      #- ./tempates:/GreaterWMS/templates:ro
+      - ./static_new/:/GreaterWMS/static_new:ro
+    networks:
+      - basic
