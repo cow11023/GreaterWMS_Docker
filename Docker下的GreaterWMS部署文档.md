@@ -47,32 +47,43 @@ apt-get install git
 yum install git
 ```
 
-6. 适用于长期保存数据(需要在用户机器上存放代码)
+6. 适用于长期保存数据(需要在用户服务器上存放代码) 和二次开发
 
 ```
 //拉取代码
 git clone https://github.com/Singosgu/GreaterWMS.git
-//进入项目目录，利用docker-compose up -d来运行项目
-运行项目前需要修改baseurl.js的内容
-vim templates/dist/spa/statics/baseurl.js 将127.0.0.1修改为服务器的IP地址
+//运行项目前需要修改baseurl.js的内容
+vim templates/dis/spa/statics/baseurl.js //将127.0.0.1修改为服务器的IP地址
 docker-compose up -d
-//查看镜像运行日志
-docker logs -f greaterwms:v2.0.25
-//backend_start.sh功能说明
-//用于初始化数据库的操作，当初始化完成时用户可以手动注释掉前面两段代码
+vim nginx.conf //修改nginx.conf中的127.0.0.1为本机IP或者服务器IP
+//查看后端镜像运行日志
+docker logs -f greaterwms_backend_v2.0.25
+//当打印的后端日志出现以下信息即表示后端启动成功
+Starting supervisor: 2021-09-09 08:24:22,929 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2021-09-09 08:24:22,930 WARN No file matches via include "/etc/supervisor/conf.d/*.conf"
+2021-09-09 08:24:22,930 WARN For [program:greaterwms], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
+2021-09-09 08:24:22,938 INFO RPC interface 'supervisor' initialized
+2021-09-09 08:24:22,938 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+2021-09-09 08:24:22,939 INFO supervisord started with pid 28
+2021-09-09 08:24:23,963 INFO spawned: 'greaterwms' with pid 32
+2021-09-09 08:24:24,971 INFO success: greaterwms entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+
+
 ```
 
-7. 适用于二次开发
+7. 发布前端代码
 
 ```
-# 后端基础镜像只有在 requirements.txt 变化后重新编译，其他情况无需变化
-#构建后端基础镜像（国内用户）,这里的版本号是指内部调试时使用的版本号，非正式版，每次更新后面的版本号建议都增加
-docker build -f ./docker_env(CN)/web/DockerfileBuild -t registry.cn-hangzhou.aliyuncs.com/cow11023/greaterwms_web_build:v1.0 .
-#构建后端基础镜像（全球用户）
-docker build -f ./docker_env(EN)/backend/DockerfileBuild -t silence2022/greaterwms_backend_build:v1.0 .
-#构建成功以后需要在再构建总镜像并上传到仓库建议用户可以直接使用我的总镜像,这里的版本号指正式发布的版本号
-docker build -t greaterwms:v2.0.25 . 
-docker push 仓库地址
-#待完善
+//进入前端容器
+docker exec -it greaterwms_web_v2.0.25 /bin/bash
+//容器内进入templates目录
+cd templates
+//编译前端代码
+quasar d 
 ```
 
+8. 访问入口
+
+   http://服务器IP:8008
+   
+   http://服务器IP（本机IP）
