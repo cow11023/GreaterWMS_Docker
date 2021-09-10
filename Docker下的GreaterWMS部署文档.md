@@ -55,7 +55,7 @@ git clone https://github.com/Singosgu/GreaterWMS.git
 //运行项目前需要修改baseurl.js的内容
 vim templates/dis/spa/statics/baseurl.js //将127.0.0.1修改为服务器的IP地址
 docker-compose up -d
-vim nginx.conf //修改nginx.conf中的127.0.0.1为本机IP或者服务器IP
+vim nginx.conf //如果部署到服务器，请修改nginx.conf中的127.0.0.1或者服务器IP
 //查看后端镜像运行日志
 docker logs -f greaterwms_backend_v2.0.25
 //当打印的后端日志出现以下信息即表示后端启动成功
