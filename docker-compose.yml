@@ -35,5 +35,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
       #- ./tempates:/GreaterWMS/templates:ro
       - ./static_new/:/GreaterWMS/static_new:ro
+    links:
+      - backend
     networks:
       - basic
