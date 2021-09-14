@@ -6,7 +6,7 @@ services:
     build:
       context: ./
       dockerfile: ./docker_env(CN)/Dockerfile #国内用户
-      dockerfile:/docker_env(EN)Dockerfile #全球用户
+      #dockerfile:./docker_env(EN)Dockerfile #全球用户
     container_name: greaterwms_v2.0.25
     restart: always
     volumes:
