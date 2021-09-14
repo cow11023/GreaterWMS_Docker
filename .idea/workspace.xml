@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2115bad5-c1ee-452d-9aed-cafd28142154" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/GreaterWMS_Docker.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Docker下的GreaterWMS部署文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docker下的GreaterWMS部署文档.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install GreaterWMS and Use Docker.md" beforeDir="false" afterPath="$PROJECT_DIR$/Install GreaterWMS and Use Docker.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend_start.sh" beforeDir="false" afterPath="$PROJECT_DIR$/backend_start.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker_env(CN)/backend/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker_env(CN)/backend/DockerfileBuild" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker_env(EN)/backend/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker_env(EN)/backend/DockerfileBuild" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +30,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1xvhrT4m0H28EJegBXOlqKBkCcZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,6 +44,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docker_env(CN)" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -51,10 +67,35 @@
       <workItem from="1631256348692" duration="2495000" />
       <workItem from="1631260697637" duration="811000" />
       <workItem from="1631261598508" duration="318000" />
+      <workItem from="1631261953027" duration="1945000" />
+      <workItem from="1631431087128" duration="2130000" />
+      <workItem from="1631451153439" duration="22000" />
+      <workItem from="1631451387447" duration="3192000" />
+      <workItem from="1631456287887" duration="9000" />
+      <workItem from="1631456426802" duration="437000" />
+      <workItem from="1631456871273" duration="184000" />
+      <workItem from="1631531122055" duration="818000" />
+      <workItem from="1631534783896" duration="81000" />
+      <workItem from="1631597458885" duration="175000" />
+      <workItem from="1631597648337" duration="235000" />
+      <workItem from="1631597920468" duration="1165000" />
+      <workItem from="1631599103696" duration="261000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

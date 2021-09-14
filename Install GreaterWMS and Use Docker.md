@@ -35,8 +35,6 @@ yum install git
 git clone https://github.com/Singosgu/GreaterWMS.git
 //you need to modify the contents of baseurl.js before running the project
 vim templates/public/static/baseurl.js //change 127.0.0.1 to the IP address of the server
-//Modify nginx configuration
-vim nginx.conf //If the server is deployed locally, modify 127.0.0.1 in nginx.conf to the native IP. If the server is deployed, modify 127.0.0.1 to the server IP
 docker-compose up -d
 //view the mirror operation log
 docker logs -f greaterwms:v2.0.25
@@ -53,18 +51,18 @@ git clone https://github.com/Singosgu/GreaterWMS.git
 //you need to modify the contents of baseurl.js before running the project
 vim templates/public/static/baseurl.js //change 127.0.0.1 to the IP address of the server
 docker-compose up -d
-//view the mirror operation log
-docker logs -f greaterwms:v2.0.25
-//view the back-end mirror operation log
-docker logs -f greaterwms_backend_v2.0.25
+//view the greaterwms log(Inclode front and backend)
+docker logs -f greaterwms_v2.0.25
 ```
 
 6. Access portal
 
 ```English
 //Front end access portal
-http://服务器IP:8008
+http://127.0.0.1:8080 或者 http://服务器IP:8080
 //Back end access portal
-http://服务器IP:8080
+ http://127.0.0.1:8008 http://服务器IP:8008
+ //the nginx
+ http://127.0.0.1 或者http://服务器IP
 
 ```
