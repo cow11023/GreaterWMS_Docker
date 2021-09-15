@@ -38,28 +38,37 @@ yum install git
 6. It is suitable for long-term data storage (code needs to be stored on the user server) and secondary development
 
 ```English
-//glone code
+//Pull code
 git clone https://github.com/Singosgu/GreaterWMS.git
-//you need to modify the contents of baseurl.js before running the project
-vim templates/public/static/baseurl.js //change 127.0.0.1 to the IP address of the server
+//You need to modify the contents of baseurl.js before running the project
+vim templates/public/statics/baseurl.js //Change 127.0.0.1 to the IP address of the server
+//You need to modify nginx.conf before running the project
+vim nginx.conf //Change 127.0.0.1 to the native IP address. If deployed to the server, change to the server IP address
 docker-compose up -d
-//view the mirror operation log
-docker logs -f greaterwms:v2.0.25
-//view the back-end mirror operation log
-docker logs -f greaterwms_backend_v2.0.25
-//Special note: after executing docker compose up - D, the front-end dependencies will be automatically downloaded. Sometimes the download fails, resulting in the front-end unable to start. At this time, first execute docker-compose down and then docker-compose up -d to download again until it succeeds.
+//View the greaterwms image operation log (the front-end and back-end run together here)
+docker logs -f greaterwms_v2.0.25
+//When the following information appears in the printed front-end log, it indicates that the front-end is started successfully
+ N  App dir........... /GreaterWMS/templates
+    App URL........... http://localhost:8080
+    Dev mode.......... spa
+    Pkg quasar........ v1.15.23
+    Pkg @quasar/app... v2.2.10
+    Transpiled JS..... yes (Babel)
+  
+｢wds｣: Project is running at http://0.0.0.0:8080/
+｢wds｣: webpack output is served from 
+//Special note: after executing docker-compose up -d, the front-end dependencies will be automatically downloaded. Sometimes the download fails, resulting in the front-end unable to start. At this time, first execute docker-compose down and then docker-compose up -d, to download again until it succeeds.
 ```
 
 7. compile front-end code
 
 ```English
-//glone code
-git clone https://github.com/Singosgu/GreaterWMS.git
-//you need to modify the contents of baseurl.js before running the project
-vim templates/public/static/baseurl.js //change 127.0.0.1 to the IP address of the server
-docker-compose up -d
-//view the greaterwms log(Inclode front and backend)
-docker logs -f greaterwms_v2.0.25
+//Enter the greaterwms container
+docker exec -it greaterwms_v2.0.25 /bin/bash
+//Enter the templates directory in the container
+cd templates
+//Compile front-end code
+quasar build 
 ```
 
 6. Access portal
