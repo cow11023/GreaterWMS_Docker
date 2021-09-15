@@ -7,11 +7,11 @@ Docker下使用GreaterWMS（本文档适用于具备Docker基础的用户使用�
 	//如果提示没有curl再执行sudo apt install curl 或 yum -y install curl
 ```
 
-2. 配置加速器（国内）
+2. 配置加速器（国内) ##国内加速，全球用户则不需要配加速器
 
 ```
 	sudo mkdir -p /etc/docker
-sudo tee /etc/docker/daemon.json <<-'EOF' ##国内加速，全球用户则不需要配加速器
+sudo tee /etc/docker/daemon.json <<-'EOF' 
 {
   "registry-mirrors": ["https://w61q8mf4.mirror.aliyuncs.com"]
 }
@@ -28,8 +28,14 @@ sudo systemctl restart docker
 	sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 	sudo chmod +x /usr/local/bin/docker-compose
 ```
-
-4. 利用docker直接试运行项目（非二次开发，用户试用，无需从github上克隆项目）
+4. 验证docker和docker-compose是否安装成功
+```
+	docker info //验证docker版本
+	docker-compose version //验证docker-compose 版本信息
+	sudo systemctl status docker //检查docker是否运行
+        sudo systemctl start docker //若没有则启动docker
+```
+5. 利用docker直接试运行项目（非二次开发，用户试用，无需从github上克隆项目）
 
 ```
 //直接docker run 国内用户使用
@@ -38,7 +44,7 @@ docker run -itd --name greaterwms_v2.0.25 -p 8008:8008 -d registry.cn-hangzhou.a
 docker run -itd --name greaterwms_v2.0.25 -p 8008:8008 -d silence2022/greaterwms:v2.0.25
 ```
 
-5. 安装git
+6. 安装git
 
 ```
 //Ubuntu下安装git
@@ -47,7 +53,7 @@ apt-get install git
 yum install git
 ```
 
-6. 适用于长期保存数据(需要在用户服务器上存放代码) 和二次开发
+7. 适用于长期保存数据(需要在用户服务器上存放代码) 和二次开发
 
 ```
 //拉取代码
@@ -71,7 +77,7 @@ docker logs -f greaterwms_v2.0.25
 
 ```
 
-7. 发布前端代码
+8. 发布前端代码
 
 ```
 //进入greaterwms容器
@@ -82,7 +88,7 @@ cd templates
 quasar build 
 ```
 
-8. 访问入口
+9. 访问入口
 ```
    前端：http://127.0.0.1:8080 或者 http://服务器IP:8080
 

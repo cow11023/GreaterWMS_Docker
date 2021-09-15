@@ -12,14 +12,21 @@ Deploy greaterwms under docker (this document is applicable to users with docker
    	sudo curl -L "https://get.daocloud.io/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
    	sudo chmod +x /usr/local/bin/docker-compose
 
-3. Use docker to directly test run the project (non secondary development, user trial, no need to clone the project from GitHub)
+3. Verify that docker is installed successfully
+   ```
+           docker info //Verify docker version information
+        docker-compose version //Verify docker compose version information
+        sudo systemctl status docker //Check whether docker is running
+        sudo systemctl start docker //If not, start docker
+   ```
+4. Use docker to directly test run the project (non secondary development, user trial, no need to clone the project from GitHub)
 
    ```
    docker run -itd --name greaterwms_v2.0.25 -p 8008:8008 -d silence2022/greaterwms:v2.0.25
    ```
 
 
-4. Install git
+5. Install git
 
 ```
 //Install git under Ubuntu
@@ -28,7 +35,7 @@ apt-get install git
 yum install git
 ```
 
-5. It is suitable for long-term data storage (code needs to be stored on the user server) and secondary development
+6. It is suitable for long-term data storage (code needs to be stored on the user server) and secondary development
 
 ```English
 //glone code
@@ -43,7 +50,7 @@ docker logs -f greaterwms_backend_v2.0.25
 //Special note: after executing docker compose up - D, the front-end dependencies will be automatically downloaded. Sometimes the download fails, resulting in the front-end unable to start. At this time, first execute docker-compose down and then docker-compose up -d to download again until it succeeds.
 ```
 
-6. compile front-end code
+7. compile front-end code
 
 ```English
 //glone code

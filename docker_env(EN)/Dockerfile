@@ -15,7 +15,6 @@ RUN apt-get update && apt-get install supervisor -y
 RUN pip3 install supervisor
 RUN pip3 install -U 'Twisted[tls,http2]'
 RUN apt install -y libmariadbd-dev
-RUN pip3 install supervisor
 RUN pip3 install -r requirements.txt
 EXPOSE 8008
 #CMD ["daphne","-b","0.0.0.0","-p","8008","greaterwms.asgi:application"]
@@ -26,4 +25,5 @@ RUN cd /GreaterWMS/templates
 RUN npm install -g yarn
 RUN npm install -g @quasar/cli
 RUN yarn install
+RUN bash web_start.sh
 EXPOSE 8080

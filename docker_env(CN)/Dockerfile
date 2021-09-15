@@ -15,7 +15,6 @@ RUN python3 -m pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simpl
 #安装supervisor
 RUN apt-get update && apt-get install supervisor -y
 #安装项目依赖包
-RUN pip3 install supervisor -i http://mirrors.aliyun.com/pypi/simple  --trusted-host mirrors.aliyun.com
 RUN pip3 install -U 'Twisted[tls,http2]' -i http://mirrors.aliyun.com/pypi/simple  --trusted-host mirrors.aliyun.com
 RUN apt install -y libmariadbd-dev
 RUN pip3 install supervisor -i http://mirrors.aliyun.com/pypi/simple  --trusted-host mirrors.aliyun.com
