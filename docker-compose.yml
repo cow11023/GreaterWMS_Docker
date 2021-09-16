@@ -2,6 +2,35 @@ version: '2'
 networks:
   basic:
 services:
+  web:
+    build:
+      context: ./
+<<<<<<< Updated upstream
+      #dockerfile: ./docker_env(EN)/web/Dockerfile #全球用户使用
+      dockerfile: ./docker_env(CN)/web/Dockerfile #国内用户使用
+    container_name: greaterwms_web_v2.0.25
+    restart: always
+    volumes:
+      - ./web_start.sh:/GreaterWMS/web_start.sh:rw
+      - ./templates:/GreaterWMS/templates:rw
+    ports:
+      - '8080:8080'
+    command: bash web_start.sh
+=======
+      dockerfile: ./docker_env(CN)/web/Dockerfile
+    container_name: greaterwms_front_v2.0.25
+    restart: always
+    volumes:
+      - ./templates/:/GreaterWMS/templates/:rw
+      - ./web_start.sh:/GreaterWMS/web_start.sh:rw
+    ports:
+      - '8080:8080'
+    command:
+      - /bin/bash
+      - -c
+      - |
+        bash web_start.sh
+>>>>>>> Stashed changes
   backend:
     build:
       context: ./
@@ -11,17 +40,24 @@ services:
     restart: always
     volumes:
       - ./:/GreaterWMS/:rw #将前目录挂载到容器下
-      - ./supervisord.conf:/etc/supervisor/supervisord.conf
+<<<<<<< Updated upstream
     ports:
       - '8008:8008'      
+    command:  bash backend_start.sh
+    depends_on:
+      - web
+=======
+      - ./supervisord.conf:/etc/supervisor/supervisord.conf
+    ports:
+      - '8008:8008'
     command:
-      - /bin/bash 
-      - -c 
+      - /bin/bash
+      - -c
       - |
         bash backend_start.sh
-        /etc/init.d/supervisor start 
+        /etc/init.d/supervisor start
   nginx:
-    image: nginx:1.19.1
+    image: nginx:1.17.1
     container_name: greaterwms_v2.0.25_nginx
     restart: always
     privileged: true
@@ -37,5 +73,6 @@ services:
       - ./static_new/:/GreaterWMS/static_new:ro
     links:
       - backend
+>>>>>>> Stashed changes
     networks:
       - basic

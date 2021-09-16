@@ -52,22 +52,36 @@ yum install git
 ```
 //拉取代码
 git clone https://github.com/Singosgu/GreaterWMS.git
+<<<<<<< Updated upstream
 //运行项目前需要修改baseurl.js的内容
-vim templates/dis/spa/statics/baseurl.js //将127.0.0.1修改为服务器的IP地址
+vim templates/public/statics/baseurl.js //将127.0.0.1修改为服务器的IP地址
+=======
+//进入项目目录，利用docker-compose up -d来运行项目
+运行项目前需要修改baseurl.js的内容
+vim templates/dist/spa/statics/baseurl.js 将127.0.0.1修改为服务器的IP地址
+// 请修改nginx.conf 将127.0.0.1修改面本机IP地址 
+>>>>>>> Stashed changes
 docker-compose up -d
-vim nginx.conf //如果部署到服务器，请修改nginx.conf中的127.0.0.1或者服务器IP
+//查看前端镜像运行日志
+docker logs -f greaterwms_web_v2.0.25
+//当打印的前端日志出现以下信息即表示前端启动成功
+ N  App dir........... /GreaterWMS/templates
+    App URL........... http://localhost:8080
+    Dev mode.......... spa
+    Pkg quasar........ v1.15.23
+    Pkg @quasar/app... v2.2.10
+    Transpiled JS..... yes (Babel)
+  
+｢wds｣: Project is running at http://0.0.0.0:8080/
+｢wds｣: webpack output is served from 
 //查看后端镜像运行日志
 docker logs -f greaterwms_backend_v2.0.25
 //当打印的后端日志出现以下信息即表示后端启动成功
-Starting supervisor: 2021-09-09 08:24:22,929 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
-2021-09-09 08:24:22,930 WARN No file matches via include "/etc/supervisor/conf.d/*.conf"
-2021-09-09 08:24:22,930 WARN For [program:greaterwms], redirect_stderr=true but stderr_logfile has also been set to a filename, the filename has been ignored
-2021-09-09 08:24:22,938 INFO RPC interface 'supervisor' initialized
-2021-09-09 08:24:22,938 CRIT Server 'unix_http_server' running without any HTTP authentication checking
-2021-09-09 08:24:22,939 INFO supervisord started with pid 28
-2021-09-09 08:24:23,963 INFO spawned: 'greaterwms' with pid 32
-2021-09-09 08:24:24,971 INFO success: greaterwms entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
-
+2021-09-07 21:19:43,168 INFO     Starting server at tcp:port=8008:interface=0.0.0.0
+2021-09-07 21:19:43,169 INFO     HTTP/2 support enabled
+2021-09-07 21:19:43,169 INFO     Configuring endpoint tcp:port=8008:interface=0.0.0.0
+2021-09-07 21:19:43,170 INFO     Listening on TCP address 0.0.0.0:8008
+//特别备注：执行docker-compose up -d后会自动下载前端依赖，有时会下载失败，导致前端无法启动，此时先执行docker-compose down再docker-compose up -d重新下载，直至成功为止。
 
 ```
 
@@ -84,6 +98,6 @@ quasar d
 
 8. 访问入口
 
-   http://服务器IP:8008
-   
-   http://服务器IP（本机IP）
+   前端：http://服务器IP:8080
+
+   后端：http://服务器IP:8008
