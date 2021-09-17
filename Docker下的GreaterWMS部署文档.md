@@ -6,6 +6,7 @@ Docker下使用GreaterWMS（本文档适用于具备Docker基础的用户使用�
 	curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 	//如果提示没有curl再执行sudo apt install curl 或 yum -y install curl
 ```
+<<<<<<< Updated upstream
 
 <<<<<<< Updated upstream
 2. 配置加速器（国内）
@@ -14,20 +15,33 @@ Docker下使用GreaterWMS（本文档适用于具备Docker基础的用户使用�
 	sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF' ##国内加速，全球用户则不需要配加速器
 =======
+=======
+>>>>>>> Stashed changes
 2. 配置加速器（国内) ##国内加速，全球用户则不需要配加速器
 
 ```
 	sudo mkdir -p /etc/docker
+<<<<<<< Updated upstream
 sudo tee /etc/docker/daemon.json <<-'EOF' 
+>>>>>>> Stashed changes
+=======
+sudo tee /etc/docker/daemon.json <<-'EOF'
 >>>>>>> Stashed changes
 {
   "registry-mirrors": ["https://w61q8mf4.mirror.aliyuncs.com"]
 }
 EOF
+<<<<<<< Updated upstream
 
 sudo systemctl daemon-reload
 sudo systemctl enable docker
 sudo systemctl restart docker
+=======
+sudo systemctl daemon-reload
+sudo systemctl enable docker
+sudo systemctl restart docker
+
+>>>>>>> Stashed changes
 ```
 
 3. 安装Docker-compose
@@ -37,9 +51,14 @@ sudo systemctl restart docker
 	sudo chmod +x /usr/local/bin/docker-compose
 ```
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 4. 利用docker直接试运行项目（非二次开发，用户试用，无需从github上克隆项目）
 =======
+=======
+
+4. 利用docker直接试运行项目（非二次开发，用户试用，无需从github上克隆项目）
+>>>>>>> Stashed changes
 4. 验证docker和docker-compose是否安装成功
 ```
 	docker info //验证docker版本
@@ -48,6 +67,9 @@ sudo systemctl restart docker
         sudo systemctl start docker //若没有则启动docker
 ```
 5. 利用docker直接试运行项目（非二次开发，用户试用，无需从github上克隆项目）
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 ```
@@ -58,9 +80,14 @@ docker run -itd --name greaterwms_v2.0.25 -p 8008:8008 -d silence2022/greaterwms
 ```
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 5. 安装git
 =======
 6. 安装git
+>>>>>>> Stashed changes
+=======
+6. 安装git
+
 >>>>>>> Stashed changes
 
 ```
@@ -70,6 +97,7 @@ apt-get install git
 yum install git
 ```
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 6. 适用于长期保存数据(需要在用户服务器上存放代码) 和二次开发
 
@@ -89,6 +117,9 @@ docker-compose up -d
 //查看前端镜像运行日志
 docker logs -f greaterwms_web_v2.0.25
 =======
+=======
+
+>>>>>>> Stashed changes
 7. 适用于长期保存数据(需要在用户服务器上存放代码) 和二次开发
 
 ```
@@ -134,6 +165,7 @@ docker logs -f greaterwms_backend_v2.0.25
 ```
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 7. 发布前端代码
 
 ```
@@ -154,15 +186,28 @@ quasar d
 8. 发布前端代码
 
 ```
+=======
+7. 发布前端代码
+
+```
+>>>>>>> Stashed changes
 //进入greaterwms容器
 docker exec -it greaterwms_v2.0.25 /bin/bash
 //容器内进入templates目录
 cd templates
 //编译前端代码
+<<<<<<< Updated upstream
 quasar build 
 ```
 
 9. 访问入口
+=======
+quasar build
+```
+
+
+8.访问入口
+>>>>>>> Stashed changes
 ```
    前端：http://127.0.0.1:8080 或者 http://服务器IP:8080
 
@@ -170,4 +215,7 @@ quasar build
 
    nginx: http://127.0.0.1 或者http://服务器IP
 ```
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
