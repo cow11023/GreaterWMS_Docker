@@ -1,5 +1,6 @@
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #/bin/bash
 cd templates
 #yarn 
@@ -14,6 +15,12 @@ quasar d
 #!/bin/bash
 cd templates
 #yarn 
+yarn install
+nohup quasar d &
+>>>>>>> Stashed changes
+=======
+#!/bin/bash
+cd templates
 yarn install
 nohup quasar d &
 >>>>>>> Stashed changes
